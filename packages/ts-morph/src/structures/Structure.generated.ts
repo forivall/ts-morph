@@ -24,6 +24,7 @@ import { AssertEntryStructure, ExportAssignmentStructure, ExportDeclarationStruc
     ModuleDeclarationStructure, SourceFileStructure } from "./module";
 import { VariableDeclarationStructure, StatementedNodeStructure, VariableStatementStructure } from "./statement";
 import { TypeAliasDeclarationStructure, TypeParameterDeclarationStructure } from "./type";
+import { OptionalKind } from "./types";
 import { StructureKind } from "./StructureKind";
 
 export interface Structure {
@@ -630,5 +631,173 @@ export const Structure = {
   /** Gets if the provided structure is a VariableStatementStructure. */
   isVariableStatement(structure: unknown): structure is VariableStatementStructure {
     return (structure as any)?.kind === StructureKind.VariableStatement;
+  },
+  /** Create a structure for a AssertEntryStructure. */
+  createAssertEntry(structure: OptionalKind<AssertEntryStructure>): AssertEntryStructure {
+    return { kind: StructureKind.AssertEntry, ...structure }
+  },
+  /** Create a structure for a CallSignatureDeclarationStructure. */
+  createCallSignature(structure: OptionalKind<CallSignatureDeclarationStructure>): CallSignatureDeclarationStructure {
+    return { kind: StructureKind.CallSignature, ...structure }
+  },
+  /** Create a structure for a ClassDeclarationStructure. */
+  createClass(structure: OptionalKind<ClassDeclarationStructure>): ClassDeclarationStructure {
+    return { kind: StructureKind.Class, ...structure }
+  },
+  /** Create a structure for a ClassStaticBlockDeclarationStructure. */
+  createClassStaticBlock(structure: OptionalKind<ClassStaticBlockDeclarationStructure>): ClassStaticBlockDeclarationStructure {
+    return { kind: StructureKind.ClassStaticBlock, ...structure }
+  },
+  /** Create a structure for a ConstructorDeclarationOverloadStructure. */
+  createConstructorDeclarationOverload(structure: OptionalKind<ConstructorDeclarationOverloadStructure>): ConstructorDeclarationOverloadStructure {
+    return { kind: StructureKind.ConstructorOverload, ...structure }
+  },
+  /** Create a structure for a ConstructorDeclarationStructure. */
+  createConstructor(structure: OptionalKind<ConstructorDeclarationStructure>): ConstructorDeclarationStructure {
+    return { kind: StructureKind.Constructor, ...structure }
+  },
+  /** Create a structure for a ConstructSignatureDeclarationStructure. */
+  createConstructSignature(structure: OptionalKind<ConstructSignatureDeclarationStructure>): ConstructSignatureDeclarationStructure {
+    return { kind: StructureKind.ConstructSignature, ...structure }
+  },
+  /** Create a structure for a DecoratorStructure. */
+  createDecorator(structure: OptionalKind<DecoratorStructure>): DecoratorStructure {
+    return { kind: StructureKind.Decorator, ...structure }
+  },
+  /** Create a structure for a EnumDeclarationStructure. */
+  createEnum(structure: OptionalKind<EnumDeclarationStructure>): EnumDeclarationStructure {
+    return { kind: StructureKind.Enum, ...structure }
+  },
+  /** Create a structure for a EnumMemberStructure. */
+  createEnumMember(structure: OptionalKind<EnumMemberStructure>): EnumMemberStructure {
+    return { kind: StructureKind.EnumMember, ...structure }
+  },
+  /** Create a structure for a ExportAssignmentStructure. */
+  createExportAssignment(structure: OptionalKind<ExportAssignmentStructure>): ExportAssignmentStructure {
+    return { kind: StructureKind.ExportAssignment, ...structure }
+  },
+  /** Create a structure for a ExportDeclarationStructure. */
+  createExportDeclaration(structure: OptionalKind<ExportDeclarationStructure>): ExportDeclarationStructure {
+    return { kind: StructureKind.ExportDeclaration, ...structure }
+  },
+  /** Create a structure for a ExportSpecifierStructure. */
+  createExportSpecifier(structure: OptionalKind<ExportSpecifierStructure>): ExportSpecifierStructure {
+    return { kind: StructureKind.ExportSpecifier, ...structure }
+  },
+  /** Create a structure for a FunctionDeclarationOverloadStructure. */
+  createFunctionDeclarationOverload(structure: OptionalKind<FunctionDeclarationOverloadStructure>): FunctionDeclarationOverloadStructure {
+    return { kind: StructureKind.FunctionOverload, ...structure }
+  },
+  /** Create a structure for a FunctionDeclarationStructure. */
+  createFunction(structure: OptionalKind<FunctionDeclarationStructure>): FunctionDeclarationStructure {
+    return { kind: StructureKind.Function, ...structure }
+  },
+  /** Create a structure for a GetAccessorDeclarationStructure. */
+  createGetAccessor(structure: OptionalKind<GetAccessorDeclarationStructure>): GetAccessorDeclarationStructure {
+    return { kind: StructureKind.GetAccessor, ...structure }
+  },
+  /** Create a structure for a ImportDeclarationStructure. */
+  createImportDeclaration(structure: OptionalKind<ImportDeclarationStructure>): ImportDeclarationStructure {
+    return { kind: StructureKind.ImportDeclaration, ...structure }
+  },
+  /** Create a structure for a ImportSpecifierStructure. */
+  createImportSpecifier(structure: OptionalKind<ImportSpecifierStructure>): ImportSpecifierStructure {
+    return { kind: StructureKind.ImportSpecifier, ...structure }
+  },
+  /** Create a structure for a IndexSignatureDeclarationStructure. */
+  createIndexSignature(structure: OptionalKind<IndexSignatureDeclarationStructure>): IndexSignatureDeclarationStructure {
+    return { kind: StructureKind.IndexSignature, ...structure }
+  },
+  /** Create a structure for a InterfaceDeclarationStructure. */
+  createInterface(structure: OptionalKind<InterfaceDeclarationStructure>): InterfaceDeclarationStructure {
+    return { kind: StructureKind.Interface, ...structure }
+  },
+  /** Create a structure for a JSDocStructure. */
+  createJSDoc(structure: OptionalKind<JSDocStructure>): JSDocStructure {
+    return { kind: StructureKind.JSDoc, ...structure }
+  },
+  /** Create a structure for a JSDocTagStructure. */
+  createJSDocTag(structure: OptionalKind<JSDocTagStructure>): JSDocTagStructure {
+    return { kind: StructureKind.JSDocTag, ...structure }
+  },
+  /** Create a structure for a JsxAttributeStructure. */
+  createJsxAttribute(structure: OptionalKind<JsxAttributeStructure>): JsxAttributeStructure {
+    return { kind: StructureKind.JsxAttribute, ...structure }
+  },
+  /** Create a structure for a JsxElementStructure. */
+  createJsxElement(structure: OptionalKind<JsxElementStructure>): JsxElementStructure {
+    return { kind: StructureKind.JsxElement, ...structure }
+  },
+  /** Create a structure for a JsxSelfClosingElementStructure. */
+  createJsxSelfClosingElement(structure: OptionalKind<JsxSelfClosingElementStructure>): JsxSelfClosingElementStructure {
+    return { kind: StructureKind.JsxSelfClosingElement, ...structure }
+  },
+  /** Create a structure for a JsxSpreadAttributeStructure. */
+  createJsxSpreadAttribute(structure: OptionalKind<JsxSpreadAttributeStructure>): JsxSpreadAttributeStructure {
+    return { kind: StructureKind.JsxSpreadAttribute, ...structure }
+  },
+  /** Create a structure for a MethodDeclarationOverloadStructure. */
+  createMethodDeclarationOverload(structure: OptionalKind<MethodDeclarationOverloadStructure>): MethodDeclarationOverloadStructure {
+    return { kind: StructureKind.MethodOverload, ...structure }
+  },
+  /** Create a structure for a MethodDeclarationStructure. */
+  createMethod(structure: OptionalKind<MethodDeclarationStructure>): MethodDeclarationStructure {
+    return { kind: StructureKind.Method, ...structure }
+  },
+  /** Create a structure for a MethodSignatureStructure. */
+  createMethodSignature(structure: OptionalKind<MethodSignatureStructure>): MethodSignatureStructure {
+    return { kind: StructureKind.MethodSignature, ...structure }
+  },
+  /** Create a structure for a ModuleDeclarationStructure. */
+  createModule(structure: OptionalKind<ModuleDeclarationStructure>): ModuleDeclarationStructure {
+    return { kind: StructureKind.Module, ...structure }
+  },
+  /** Create a structure for a ParameterDeclarationStructure. */
+  createParameter(structure: OptionalKind<ParameterDeclarationStructure>): ParameterDeclarationStructure {
+    return { kind: StructureKind.Parameter, ...structure }
+  },
+  /** Create a structure for a PropertyAssignmentStructure. */
+  createPropertyAssignment(structure: OptionalKind<PropertyAssignmentStructure>): PropertyAssignmentStructure {
+    return { kind: StructureKind.PropertyAssignment, ...structure }
+  },
+  /** Create a structure for a PropertyDeclarationStructure. */
+  createProperty(structure: OptionalKind<PropertyDeclarationStructure>): PropertyDeclarationStructure {
+    return { kind: StructureKind.Property, ...structure }
+  },
+  /** Create a structure for a PropertySignatureStructure. */
+  createPropertySignature(structure: OptionalKind<PropertySignatureStructure>): PropertySignatureStructure {
+    return { kind: StructureKind.PropertySignature, ...structure }
+  },
+  /** Create a structure for a SetAccessorDeclarationStructure. */
+  createSetAccessor(structure: OptionalKind<SetAccessorDeclarationStructure>): SetAccessorDeclarationStructure {
+    return { kind: StructureKind.SetAccessor, ...structure }
+  },
+  /** Create a structure for a ShorthandPropertyAssignmentStructure. */
+  createShorthandPropertyAssignment(structure: OptionalKind<ShorthandPropertyAssignmentStructure>): ShorthandPropertyAssignmentStructure {
+    return { kind: StructureKind.ShorthandPropertyAssignment, ...structure }
+  },
+  /** Create a structure for a SourceFileStructure. */
+  createSourceFile(structure: OptionalKind<SourceFileStructure>): SourceFileStructure {
+    return { kind: StructureKind.SourceFile, ...structure }
+  },
+  /** Create a structure for a SpreadAssignmentStructure. */
+  createSpreadAssignment(structure: OptionalKind<SpreadAssignmentStructure>): SpreadAssignmentStructure {
+    return { kind: StructureKind.SpreadAssignment, ...structure }
+  },
+  /** Create a structure for a TypeAliasDeclarationStructure. */
+  createTypeAlias(structure: OptionalKind<TypeAliasDeclarationStructure>): TypeAliasDeclarationStructure {
+    return { kind: StructureKind.TypeAlias, ...structure }
+  },
+  /** Create a structure for a TypeParameterDeclarationStructure. */
+  createTypeParameter(structure: OptionalKind<TypeParameterDeclarationStructure>): TypeParameterDeclarationStructure {
+    return { kind: StructureKind.TypeParameter, ...structure }
+  },
+  /** Create a structure for a VariableDeclarationStructure. */
+  createVariableDeclaration(structure: OptionalKind<VariableDeclarationStructure>): VariableDeclarationStructure {
+    return { kind: StructureKind.VariableDeclaration, ...structure }
+  },
+  /** Create a structure for a VariableStatementStructure. */
+  createVariableStatement(structure: OptionalKind<VariableStatementStructure>): VariableStatementStructure {
+    return { kind: StructureKind.VariableStatement, ...structure }
   }
 } as const;

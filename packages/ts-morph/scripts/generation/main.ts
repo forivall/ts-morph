@@ -5,6 +5,7 @@ import { createForEachStructureChild } from "./createForEachStructureChild.ts";
 import { createGetStructureFunctions } from "./createGetStructureFunctions.ts";
 import { createKindToNodeMappings } from "./createKindToNodeMappings.ts";
 import { createNodeTypeGuards } from "./createNodeTypeGuards.ts";
+import { createStructureCreators } from "./createStructureCreators.ts";
 import { createStructurePrinterFactory } from "./createStructurePrinterFactory.ts";
 import { createStructureTypeGuards } from "./createStructureTypeGuards.ts";
 
@@ -43,6 +44,10 @@ if (checkHasArg("create-for-each-structure-child")) {
 if (checkHasArg("create-structure-type-guards")) {
   console.log("Creating structure type guards utility class...");
   createStructureTypeGuards(inspector);
+}
+if (checkHasArg("create-structure-creators")) {
+  console.log("Creating structure creator utility class...");
+  createStructureCreators(inspector);
 }
 
 if (args.length > 0)
